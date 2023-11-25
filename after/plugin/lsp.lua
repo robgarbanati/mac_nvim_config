@@ -47,6 +47,8 @@ require('mason-lspconfig').setup({
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_insert = {behavior = cmp.SelectBehavior.insert, select = true}
+
 
 cmp.setup({
   sources = {
@@ -56,8 +58,8 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    ['C-G'] = cmp.mapping.select_next_item(cmp_select),
-    ['C-g'] = cmp.mapping.select_prev_item(cmp_select),
+    -- ['C-PageDown'] = cmp.mapping.select_next_item(cmp_insert),
+    -- ['C-PageUp'] = cmp.mapping.select_prev_item(cmp_insert),
     ['<C-y>'] = cmp.mapping.confirm({select = true}),
     ['<C-Y>'] = cmp.mapping.complete(),
   }),
