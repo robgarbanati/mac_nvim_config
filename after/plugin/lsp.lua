@@ -27,28 +27,27 @@ require('mason-lspconfig').setup({
   }
 })
 
--- local cmp = require('cmp')
--- local cmp_insert = {behavior = cmp.SelectBehavior.insert, select = true}
--- cmp.setup({
---     sources = {
---         {name = 'path'},
---         {name = 'nvim_lsp'},
---         {name = 'nvim_lua'},
---     },
---     formatting = lsp_zero.cmp_format(),
---     mapping = cmp.mapping.preset.insert({
---         ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_insert),
---         ['<Tab>'] = cmp.mapping.select_next_item(cmp_insert),
---         ['<C-g>'] = cmp.mapping.confirm({ select = true }),
---         ['<C-G>'] = cmp.mapping.complete(),
---     }),
--- })
+local cmp = require('cmp')
+local cmp_insert = {behavior = cmp.SelectBehavior.insert, select = true}
+cmp.setup({
+    sources = {
+        {name = 'path'},
+        {name = 'nvim_lsp'},
+        {name = 'nvim_lua'},
+    },
+    formatting = lsp_zero.cmp_format(),
+    mapping = cmp.mapping.preset.insert({
+        ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_insert),
+        ['<Tab>'] = cmp.mapping.select_next_item(cmp_insert),
+        ['<C-g>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-G>'] = cmp.mapping.complete(),
+    }),
+})
 
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 local cmp_insert = {behavior = cmp.SelectBehavior.insert, select = true}
-
 
 cmp.setup({
   sources = {
@@ -58,8 +57,8 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    ['C-n'] = cmp.mapping.select_next_item(cmp_insert),
-    ['C-m'] = cmp.mapping.select_prev_item(cmp_insert),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_insert),
+    ['<C-m>'] = cmp.mapping.select_prev_item(cmp_insert),
     ['<C-y>'] = cmp.mapping.confirm({select = true}),
     ['<C-g>'] = cmp.mapping.confirm({select = true}),
     ['<C-Y>'] = cmp.mapping.complete(),
