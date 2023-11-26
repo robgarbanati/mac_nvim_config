@@ -58,9 +58,10 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    -- ['C-PageDown'] = cmp.mapping.select_next_item(cmp_insert),
-    -- ['C-PageUp'] = cmp.mapping.select_prev_item(cmp_insert),
+    ['C-n'] = cmp.mapping.select_next_item(cmp_insert),
+    ['C-m'] = cmp.mapping.select_prev_item(cmp_insert),
     ['<C-y>'] = cmp.mapping.confirm({select = true}),
+    ['<C-g>'] = cmp.mapping.confirm({select = true}),
     ['<C-Y>'] = cmp.mapping.complete(),
   }),
 })
