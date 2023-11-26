@@ -10,15 +10,26 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-telescope/telescope.nvim', tag = '0.1.4',
 		-- or                            , branch = '0.1.x',
-		requires = { {'nvim-lua/plenary.nvim'} }
+		requires = {
+			{ "nvim-telescope/telescope-live-grep-args.nvim" },
+			{'nvim-lua/plenary.nvim'},
+			{'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+		},
+		extensions = {
+			fzf = {
+				fuzzy = true,                    -- false will only do exact matching
+				override_generic_sorter = true,  -- override the generic sorter
+				override_file_sorter = true,     -- override the file sorter
+				case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+				-- the default case_mode is "smart_case"
+			}
+		},
+		config = function()
+			require("telescope").load_extension("live_grep_args")
+		end
 	}
+	-- use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-	-- use({ 'rose-pine/neovim',
-	-- 	as = 'rose-pine',
-	-- 	config = function()
-	-- 		vim.cmd('colorscheme rose-pine')
-	-- 	end
-	-- })
 	use {
 		'nvim-treesitter/nvim-treesitter',
 		run = function()
@@ -30,7 +41,7 @@ return require('packer').startup(function(use)
 	use 'nvim-treesitter/playground'
 	use 'theprimeagen/harpoon'
 	use 'mbbill/undotree'
-	use({ "ggandor/leap.nvim", config = function() require("leap").add_default_mappings() end })
+	use "ggandor/leap.nvim"
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v3.x',
