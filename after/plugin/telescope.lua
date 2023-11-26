@@ -30,11 +30,9 @@ vim.keymap.set("n", "<leader>gf", builtin.find_files, {}) -- get files
 vim.keymap.set("n", "<leader>gg", builtin.live_grep, {}) -- get grep
 vim.keymap.set('n', '<leader>gb', builtin.buffers, {}) -- get buffers
 vim.keymap.set('n', '<leader>gh', builtin.help_tags, {}) -- get help
-vim.keymap.set("n", "<leader>gr", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case" } })<CR>')
+vim.keymap.set('n', '<leader>gr', builtin.lsp_references, {}) -- get references for word under cursor
 vim.keymap.set("n", "<leader>gc", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=c" } })<CR>') -- get c files
 vim.keymap.set("n", "<leader>gl", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=lua" } })<CR>') -- get lua files
-vim.keymap.set("n", "<leader>gy", ':Telescope neoclip<CR>') -- get yanks
-vim.keymap.set("n", "<leader>gs", ':Telescope neoclip plus<CR>') -- get yanks
+vim.keymap.set("n", "<leader>gy", ':Telescope neoclip extra=plus<CR>') -- get yanks
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('neoclip')
-
