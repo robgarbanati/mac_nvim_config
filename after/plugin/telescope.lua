@@ -24,14 +24,17 @@ telescope.setup {
   }
 }
 local live_grep_args_shortcuts = require("telescope-live-grep-args.shortcuts")
-vim.keymap.set("n", "<leader>gw", live_grep_args_shortcuts.grep_word_under_cursor)
-vim.keymap.set("n", "<leader>gp", builtin.git_files, {})
-vim.keymap.set("n", "<leader>gf", builtin.find_files, {})
-vim.keymap.set("n", "<leader>gg", builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set("n", "<leader>gw", live_grep_args_shortcuts.grep_word_under_cursor) -- grep word
+vim.keymap.set("n", "<leader>gp", builtin.git_files, {}) -- get project
+vim.keymap.set("n", "<leader>gf", builtin.find_files, {}) -- get files
+vim.keymap.set("n", "<leader>gg", builtin.live_grep, {}) -- get grep
+vim.keymap.set('n', '<leader>gb', builtin.buffers, {}) -- get buffers
+vim.keymap.set('n', '<leader>gh', builtin.help_tags, {}) -- get help
 vim.keymap.set("n", "<leader>gr", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case" } })<CR>')
-vim.keymap.set("n", "<leader>gc", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=c" } })<CR>')
-vim.keymap.set("n", "<leader>gl", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=lua" } })<CR>')
+vim.keymap.set("n", "<leader>gc", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=c" } })<CR>') -- get c files
+vim.keymap.set("n", "<leader>gl", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=lua" } })<CR>') -- get lua files
+vim.keymap.set("n", "<leader>gy", ':Telescope neoclip<CR>') -- get yanks
+vim.keymap.set("n", "<leader>gs", ':Telescope neoclip plus<CR>') -- get yanks
 require('telescope').load_extension('fzf')
+require('telescope').load_extension('neoclip')
 
