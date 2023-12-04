@@ -39,7 +39,11 @@ return require('packer').startup(function(use)
 	}
 	use 'navarasu/onedark.nvim'
 	use 'nvim-treesitter/playground'
-	use 'theprimeagen/harpoon'
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { {"nvim-lua/plenary.nvim"} }
+    }
 	use 'mbbill/undotree'
 	use "ggandor/leap.nvim"
 	use {
@@ -130,6 +134,7 @@ return require('packer').startup(function(use)
 		end,	
 	}
 	use 'tpope/vim-fugitive'
+    use 'nvim-tree/nvim-web-devicons'
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'nvim-tree/nvim-web-devicons', opt = true }
@@ -140,6 +145,6 @@ return require('packer').startup(function(use)
 			require('Comment').setup()
 		end
 	}
-    use { "zbirenbaum/copilot.lua" }
+	use { "zbirenbaum/copilot.lua" }
 
 end)

@@ -29,7 +29,7 @@ vim.opt.textwidth = 100
 -- Set maximum depth of fold nesting
 vim.opt.foldnestmax = 1
 -- Set the level of folding on opening a file. Aka everything is folded when opening a new file/buffer.
-vim.opt.foldlevel = 1
+-- vim.opt.foldlevel = 1
 -- Edit the text shown in folds. Here we show the first line in a fold, then '...' then the last line in a fold.
 vim.opt.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').' ... '.trim(getline(v:foldend))]]
 
@@ -100,6 +100,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     group = "MyAutoCmds",
     pattern = "*",
     callback = function()
+        vim.opt.formatoptions:remove('c')
         vim.opt.formatoptions:remove('o')
         vim.opt.formatoptions:remove('r')
     end

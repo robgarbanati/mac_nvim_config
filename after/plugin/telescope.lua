@@ -35,4 +35,4 @@ vim.keymap.set("n", "<leader>gc", ':lua require("telescope").extensions.live_gre
 vim.keymap.set("n", "<leader>gl", ':lua require("telescope").extensions.live_grep_args.live_grep_args({vimgrep_arguments = { "rg", "--with-filename", "--line-number", "--column", "--smart-case", "--type=lua" } })<CR>') -- get lua files
 vim.keymap.set("n", "<leader>gy", ':Telescope neoclip extra=plus<CR>') -- get yanks
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('neoclip')
+-- require('telescope').load_extension('neoclip')
