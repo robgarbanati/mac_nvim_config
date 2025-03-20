@@ -131,7 +131,7 @@ return require('packer').startup(function(use)
 					},
 				},
 			})
-		end,	
+		end,
 	}
 	use 'tpope/vim-fugitive'
     use 'nvim-tree/nvim-web-devicons'
@@ -146,5 +146,7 @@ return require('packer').startup(function(use)
 		end
 	}
 	use { "zbirenbaum/copilot.lua" }
+    -- use { 'gpanders/editorconfig.nvim' }
+    -- use { 'editorconfig/editorconfig-vim' }
 
 end)
