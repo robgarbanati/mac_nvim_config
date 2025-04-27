@@ -1,4 +1,7 @@
-package.path = package.path .. ";/Users/rgarbana/.config/nvim/?.lua"
+-- Uncomment below for mac
+-- package.path = package.path .. ";/Users/rgarbana/.config/nvim/?.lua"
+-- Uncomment below for Linux/wsl
+package.path = package.path .. ";/home/rgarbana/.config/nvim/?.lua"
 require("plugins")
 -- require("editorconfig")
 vim.g.mapleader = " "

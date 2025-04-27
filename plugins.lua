@@ -145,7 +145,6 @@ return require('packer').startup(function(use)
 			require('Comment').setup()
 		end
 	}
-	use { "zbirenbaum/copilot.lua" }
     -- use { 'gpanders/editorconfig.nvim' }
     -- use { 'editorconfig/editorconfig-vim' }
 
