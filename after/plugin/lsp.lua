@@ -23,7 +23,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = {'lua_ls', 'rust_analyzer', 'clangd', 'pyright'},
+    ensure_installed = {'lua_ls', 'rust_analyzer', 'clangd', 'basedpyright', 'ruff'},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -36,6 +36,28 @@ require('mason-lspconfig').setup({
                 capabilities = {
                     offsetEncoding = 'utf-8',
                 },
+            })
+        end,
+        basedpyright = function()
+            require('lspconfig').basedpyright.setup({
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            diagnosticMode = "openFilesOnly",
+                            useLibraryCodeForTypes = true,
+                            typeCheckingMode = "basic",
+                        },
+                    },
+                },
+            })
+        end,
+        ruff = function()
+            require('lspconfig').ruff.setup({
+                on_attach = function(client, bufnr)
+                    -- Disable hover in favor of basedpyright
+                    client.server_capabilities.hoverProvider = false
+                end,
             })
         end,
     },
