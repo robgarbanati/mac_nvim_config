@@ -54,6 +54,11 @@ require('mason-lspconfig').setup({
         end,
         ruff = function()
             require('lspconfig').ruff.setup({
+                init_options = {
+                    settings = {
+                        configurationPreference = "filesystemFirst",
+                    }
+                },
                 on_attach = function(client, bufnr)
                     -- Disable hover in favor of basedpyright
                     client.server_capabilities.hoverProvider = false
